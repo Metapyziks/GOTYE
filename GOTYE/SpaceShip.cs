@@ -56,11 +56,25 @@ namespace GOTYE
             {
                 if (Scene.CurrentTime() > nextpewtime)
                 {
-                    nextpewtime = Scene.CurrentTime() + 0.1;
+                    nextpewtime = Scene.CurrentTime() + 1.0;
+                    Scene.AddJunk(new SpaceFlare(Sprite.Position, Sprite.Rotation - MathHelper.Pi / 32f, Colour4.Red));
+                    Scene.AddJunk(new SpaceFlare(Sprite.Position, Sprite.Rotation - MathHelper.Pi / 64f, Colour4.Red));
                     Scene.AddJunk(new SpaceFlare(Sprite.Position, Sprite.Rotation, Colour4.Red));
+                    Scene.AddJunk(new SpaceFlare(Sprite.Position, Sprite.Rotation + MathHelper.Pi / 64f, Colour4.Red));
+                    Scene.AddJunk(new SpaceFlare(Sprite.Position, Sprite.Rotation + MathHelper.Pi / 32f, Colour4.Red));
                 }
 
             }
+
+            //foreach (var junk in junkage) {
+            //    if (junk is Roid) {
+            //        var force = Position - junk.Position;
+            //        var mag = force.Length;
+            //        force.Normalize();
+            //        force = force / (mag * junk.Scale * junk.Scale);
+            //        ((Roid) junk).Push(force);
+            //    }
+            //}
 
             Scene.AddJunk(new Trail(Sprite.Position, Sprite.Rotation, Color.FromArgb(70, Color.RoyalBlue)));
 

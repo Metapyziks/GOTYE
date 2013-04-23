@@ -14,8 +14,7 @@ namespace GOTYE
     {
         static String[] texturenames = new[]
         {
-            "roid1",
-            "roid2"
+            "roid1"
             
         };
 
@@ -60,7 +59,8 @@ namespace GOTYE
                 Y = 0
             };
             rotspeed = Program.Rand.NextSingle() * MathHelper.Pi / 10 - MathHelper.Pi / 20;
-            Sprite.Colour = Color4.SlateGray;
+            byte clr = (byte) Program.Rand.Next(32, 128);
+            Sprite.Colour = new Color4(clr, clr, clr, 255);
         }
 
         private Roid(Vector2 pos, Vector2 vel, float scale)
@@ -69,13 +69,19 @@ namespace GOTYE
             HP = (int)(Sprite.Scale.X * 50);
             velocity = vel;
             rotspeed = Program.Rand.NextSingle() * MathHelper.Pi / 10 - MathHelper.Pi / 20;
-            Sprite.Colour = Color4.SlateGray;
+            byte clr = (byte) Program.Rand.Next(32, 128);
+            Sprite.Colour = new Color4(clr, clr, clr, 255);
+        }
+
+        public void Push(Vector2 impulse)
+        {
+            velocity += impulse;
         }
 
         protected override void OnDamaged(int amount, Vector2 force)
         {
             velocity = velocity + (force / Sprite.Scale.X);
-            Sprite.Colour = Color4.Orange;
+            //Sprite.Colour = Color4.Orange;
         }
 
         protected override void OnKilled()

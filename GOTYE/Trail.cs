@@ -50,8 +50,8 @@ namespace GOTYE
             Sprite.Rotation = angle;
             velocity = new Vector2
             {
-                X = (float)Math.Cos(angle) * -trailspeed,
-                Y = (float)Math.Sin(angle) * -trailspeed
+                X = -trailspeed,
+                Y = 0
             };
         }
     }
