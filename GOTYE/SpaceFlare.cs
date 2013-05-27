@@ -72,7 +72,6 @@ namespace GOTYE
                     ((Damagable)junk).Damage(12, hit, velocity / 32);
                     Sprite.Position = hit;
                     velocity = new Vector2();
-                    hashit = true;
                     return;
                 }
             }

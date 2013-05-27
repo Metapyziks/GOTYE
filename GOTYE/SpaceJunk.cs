@@ -33,6 +33,22 @@ namespace GOTYE
             get;
         }
 
+        public Vector2 Position
+        {
+            get
+            {
+                return Sprite.Position;
+            }
+        }
+
+        public float Scale
+        {
+            get
+            {
+                return Sprite.Scale.X;
+            }
+        }
+
         public abstract float Depth
         {
             get;

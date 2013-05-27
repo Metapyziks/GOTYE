@@ -74,6 +74,12 @@ namespace GOTYE
             velocity = vel;
             rotspeed = Program.Rand.NextSingle() * MathHelper.Pi / 10 - MathHelper.Pi / 20;
             Sprite.Colour = roidcolour;
+            Sprite.Colour = new Color4(clr, clr, clr, 255);
+        }
+
+        public void Push(Vector2 impulse)
+        {
+            velocity += impulse;
         }
 
         protected override void OnDamaged(int amount, Vector2 hitpos, Vector2 force)
